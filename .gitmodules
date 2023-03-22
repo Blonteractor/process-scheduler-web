@@ -1,0 +1,3 @@
+[submodule "scheduler-rs"]
+	path = scheduler
+	url = https://github.com/blonteractor/scheduler-rs
