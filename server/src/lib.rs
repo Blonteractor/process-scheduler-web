@@ -2,14 +2,15 @@ pub mod scheduler_grpc {
     tonic::include_proto!("scheduler");
 }
 
-use scheduler::Process;
 use scheduler_grpc::scheduler_server::Scheduler;
 use scheduler_grpc::{Algorithm, GranttNode, ProcessPayload};
-use tokio::sync::mpsc;
-use tokio_stream::wrappers::ReceiverStream;
+
 use tonic::{Request, Response, Status};
+use tokio_stream::wrappers::ReceiverStream;
+use tokio::sync::mpsc;
 
 use scheduler::algos::{non_preemptive, preemptive};
+use scheduler::Process;
 
 pub struct SchedulerService;
 
@@ -74,11 +75,14 @@ impl Scheduler for SchedulerService {
         })
         .collect();
 
-        for node in scheduler_result {
-            if let Err(e) = tx.send(Ok(node)).await {
-                return Err(Status::internal(e.to_string()));
+        tokio::spawn(async move {
+            for node in scheduler_result {
+                if let Err(e) = tx.send(Ok(node)).await {
+                    return Err(Status::internal(format!("Internal server error: {} ", e.to_string())));
+                } 
             }
-        }
+            Ok(())
+        });
 
         Ok(Response::new(ReceiverStream::new(rx)))
     }
