@@ -1,4 +1,4 @@
-syntax = "proto3"
+syntax = "proto3";
 
 package scheduler;
 
@@ -32,7 +32,7 @@ message Process {
 }
 
 enum Algorithm {
-    SRTF = 0;
+    FCFS = 0;
     SJF = 1;
     PRIORITY = 2;
     SRTF = 3;
