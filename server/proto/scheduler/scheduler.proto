@@ -3,32 +3,34 @@ syntax = "proto3";
 package scheduler;
 
 service Scheduler {
-    rpc RunProcesses(ProcessQueue) returns(stream GranttNode);  
+    rpc RunProcesses(ProcessPayload) returns(stream GranttNode);  
 }
 
 message ScheduleResult {
-    int32 total_tat = 1;
-    int32 total_wt = 2;
+    uint32 total_tat = 1;
+    uint32 total_wt = 2;
     float average_tat = 3;
     float average_wt = 4;
     repeated GranttNode grantt_chart = 5;
 }
 
 message GranttNode {
-    int32 pid = 1;
-    int32 start = 2;
-    int32 end = 3;
+    uint32 pid = 1;
+    uint32 start = 2;
+    uint32 end = 3;
 }
 
-message ProcessQueue {
+message ProcessPayload {
     repeated Process queue = 1;
     Algorithm algorithm = 2; 
+    optional int32 quantum = 3;
 }
 
 message Process {
-    int32 id = 1;
-    int32 arrival_time = 2;
-    int32 burst_time = 3;
+    uint32 id = 1;
+    uint32 arrival_time = 2;
+    uint32 burst_time = 3;
+    uint32 priority = 4;
 }
 
 enum Algorithm {
