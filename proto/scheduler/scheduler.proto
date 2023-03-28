@@ -4,6 +4,15 @@ package scheduler;
 
 service Scheduler {
     rpc RunProcesses(ProcessPayload) returns(stream GranttNode);  
+    rpc Echo(EchoRequest) returns(EchoResponse);
+}
+
+message EchoRequest {
+    string text = 1;
+}
+
+message EchoResponse {
+    string text = 1;
 }
 
 message ScheduleResult {
