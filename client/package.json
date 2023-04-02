@@ -1,0 +1,24 @@
+{
+  "name": "client",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "protogen": "cd ../proto/; buf generate; cd ../client",
+    "client": "tsc; node src/index.js",
+    "build": "npm run protogen; npm run client"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "grpc-tools": "^1.12.4",
+    "grpc_tools_node_protoc_ts": "^5.3.3"
+  },
+  "dependencies": {
+    "nice-grpc-web": "^3.2.3",
+    "ts-proto": "^1.146.0",
+    "ws": "^8.13.0"
+  }
+}

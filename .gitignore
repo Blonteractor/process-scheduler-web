@@ -1,3 +1,7 @@
 target
 Cargo.lock
-
+node_modules
+yarn.lock
+client/src/proto
+yarn-error.log
+index.js
