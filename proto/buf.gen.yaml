@@ -1,0 +1,16 @@
+version: v1beta1
+plugins:
+    - name: ts
+      out: ../client/src/proto
+      path: protoc-gen-ts_proto
+      strategy: all
+      opt:
+          - outputServices=generic-definitions
+          - outputJsonMethods=false
+          - useExactTypes=false
+          - outputServices=nice-grpc
+          - esModuleInterop=true
+          - useOptionals=messages
+          - unrecognizedEnum=false
+          - removeEnumPrefix=true
+          - lowerCaseServiceMethods=true
