@@ -18,8 +18,6 @@
   },
   "dependencies": {
     "nice-grpc": "^2.1.4",
-    "nice-grpc-web": "^3.2.3",
-    "ts-proto": "^1.146.0",
-    "ws": "^8.13.0"
+    "ts-proto": "^1.146.0"
   }
 }
