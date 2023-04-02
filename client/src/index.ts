@@ -1,4 +1,4 @@
-import { createChannel, createClient } from "nice-grpc-web";
+import { createChannel, createClient } from "nice-grpc";
 import { Algorithm, SchedulerDefinition } from "./proto/scheduler/scheduler";
 
 const client = createClient(
