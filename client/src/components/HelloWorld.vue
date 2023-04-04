@@ -1,15 +1,14 @@
 <script lang="ts">
-// import client from "@/client";
+import client from "@/client";
 import { defineComponent } from "vue";
-import { client } from "@/client";
 
 export default defineComponent({
 	props: {
-		msg: { type: String, required: true },
+		msg: String,
 	},
 	data() {
 		return {
-			serverMsg: this.msg,
+			serverMsg: this.msg != undefined ? this.msg : "kekw",
 		};
 	},
 	async mounted() {

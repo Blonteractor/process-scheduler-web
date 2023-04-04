@@ -4,6 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "vite",
+    "proxy": "sudo envoy -c envoy.yaml",
     "protogen": "cd ../proto/; buf generate; cd ../client",
     "build": "run-p type-check build-only",
     "preview": "vite preview",
@@ -13,7 +14,6 @@
     "format": "prettier --write src/"
   },
   "dependencies": {
-    "google-protobuf": "^3.21.2",
     "nice-grpc-web": "^3.2.3",
     "ts-proto": "^1.146.0",
     "vue": "^3.2.47"

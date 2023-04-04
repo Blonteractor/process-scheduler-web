@@ -3,5 +3,7 @@ import { SchedulerDefinition } from "./proto/scheduler/scheduler";
 
 export const client = createClient(
 	SchedulerDefinition,
-	createChannel("http://localhost10000")
+	createChannel(" http://localhost:8080")
 );
+
+export default client;
