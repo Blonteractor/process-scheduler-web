@@ -1,11 +1,15 @@
-use std::net::SocketAddr;
+use std::env;
+use std::net::{IpAddr, Ipv4Addr, SocketAddr};
 
 use server::{self, scheduler_grpc::scheduler_server::SchedulerServer};
 use tonic::transport::Server;
 
 #[tokio::main]
 async fn main() -> Result<(), Box<dyn std::error::Error>> {
-    let addr: SocketAddr = "127.0.0.1:10000".parse().unwrap();
+    let addr: SocketAddr = SocketAddr::new(
+        IpAddr::V4(Ipv4Addr::new(0, 0, 0, 0)),
+        env::var("LISTEN_PORT").unwrap().parse().unwrap(),
+    );
 
     let scheduler = server::SchedulerService {};
 

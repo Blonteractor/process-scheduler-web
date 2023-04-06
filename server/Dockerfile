@@ -17,6 +17,7 @@ COPY proto ./proto
 
 # Set the environment variable to enable the flag
 ENV EXPIREMENTAL_ALLOW_PROTO3_OPTIONAL=true
+ENV LISTEN_PORT=10000
 
 # Build the application using Cargo
 RUN cargo build --release
@@ -25,4 +26,4 @@ RUN cargo build --release
 EXPOSE 10000
 
 # Run the server when the container starts
-CMD ["./target/release/server", "--bind", "127.0.0.1"]
+CMD ["./target/release/server"]
