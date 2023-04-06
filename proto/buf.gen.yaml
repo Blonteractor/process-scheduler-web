@@ -14,3 +14,4 @@ plugins:
           - unrecognizedEnum=false
           - removeEnumPrefix=true
           - lowerCaseServiceMethods=true
+          - noServer=true
