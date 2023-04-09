@@ -15,10 +15,6 @@ COPY server ./server
 COPY scheduler ./scheduler
 COPY proto ./proto
 
-# Set the environment variable to enable the flag
-ENV EXPIREMENTAL_ALLOW_PROTO3_OPTIONAL=true
-ENV LISTEN_PORT=10000
-
 # Build the application using Cargo
 RUN cargo build --release
 
