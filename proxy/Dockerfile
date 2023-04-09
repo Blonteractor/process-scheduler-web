@@ -8,7 +8,7 @@ WORKDIR /usr/src/proxy
 # Copy the configuration file into the container
 COPY envoy.yaml envoy.yaml.template
 
-ENV ADMIN_PORT=80 LISTEN_PORT=8080 BACKEND_IP="172.17.0.2" BACKEND_PORT=10000
+ENV ADMIN_PORT=80 LISTEN_PORT=8080 BACKEND_IP="server" BACKEND_PORT=10000
 
 # Expose the proxy server port
 EXPOSE ${LISTEN_PORT} ${ADMIN_PORT}
